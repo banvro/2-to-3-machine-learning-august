@@ -37,4 +37,20 @@
 # print(type(a))
 
 
+# Controle Statements : 
+
+# if, else, elif
+
+age = int(input("Enter Age : "))
+
+# 20 > 18
+if age > 18:
+    print("You are eligibl for voat")
+    
+else:
+    print("you are not eligible...")
+
+
+
+
 
