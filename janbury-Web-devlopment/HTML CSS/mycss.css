@@ -1,0 +1,52 @@
+.xyz{
+    text-align: center;
+    color: red;
+    font-family: cursive;
+    font-size: 32px;
+    background-color: pink;
+    max-width: max-content;
+    padding: 16px;
+    border-radius: 14px;
+}
+
+.mycss{
+    border: 2px solid red;
+    border-radius: 21px;
+    background-color: #84ff847a;
+}
+
+.setincenter{
+    display: flex;
+    justify-content: center;
+}
+
+.startwork{
+    border: 2px solid green;
+    width: fit-content;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: pink;
+    margin-left: 28%;
+    margin-bottom: 44px;
+}
+
+label{
+    font-size: 46px;
+    font-family: cursive;
+}
+
+input{
+    font-size: 26px;
+    margin-top: 18px;
+    margin-left: 32px;
+}
+
+.mybutn{
+    font-size: 31px;
+background-color: green;
+color: white;
+padding-left: 14px;
+padding-right: 14px;
+border-radius: 10px;
+border-color: white;
+}
