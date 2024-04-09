@@ -36,7 +36,7 @@ def contactus():
 @app.route("/services")
 def servicespage():
     
-    data = "ok"
+    data = ContactUs.query.all()
 
     return render_template("myhtml/services.html", mydata = data)
 
@@ -55,11 +55,34 @@ def savethisdata():
     return "your data saved sucessfulyyy......!"
 
 
-@app.route("/deletethisdata/<x>", methods = ["POST"])
+@app.route("/deletethisdata/<int:x>", methods = ["POST"])
 def deletethisdata(x):
-   
-    return "data deleteeeeeeee"
+    
+    data = ContactUs.query.filter_by(id = x).first()
+    db.session.delete(data)
+    db.session.commit()
 
+    return redirect("/services")
+
+@app.route("/update-data/<int:myid>", methods = ["POST"])
+def updatedata(myid):
+    data = ContactUs.query.filter_by(id = myid).first()
+    return  render_template('myhtml/contact-update.html', xyz = data)
+
+
+
+
+@app.route("/update-this-data/<int:xy>", methods = ["POST"])
+def updatethis(xy):
+    data = ContactUs.query.filter_by(id = xy).first()
+    if request.method == "POST":
+        mytitle = request.form.get("title")
+        message = request.form.get("msg")
+
+        data.Title = mytitle
+        data.Message = message
+        db.session.commit()
+    return "data updates"
 
 
 if __name__ == "__main__":
