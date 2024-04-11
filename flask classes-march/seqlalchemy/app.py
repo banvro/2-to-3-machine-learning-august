@@ -1,9 +1,11 @@
-from flask import  Flask, render_template, request, redirect
+from flask import  Flask, render_template, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
-
+import os
 
 
 app = Flask(__name__)
+
+app.secret_key = "askdjaskdbkjasbdkjbasdbasdbasjkbaskbsabdsajdbjkasbdakjdb"
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///myfirstdb.db"
 
@@ -14,6 +16,7 @@ class ContactUs(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Title = db.Column(db.String(120))
     Message = db.Column(db.Text)
+    myimage = db.Column(db.String(255))
 
 # db.create_all()
     
@@ -46,9 +49,19 @@ def savethisdata():
         mytitle = request.form.get("title")
         message = request.form.get("msg")
 
-        data = ContactUs(Title = mytitle, Message = message)
+        myimg = request.files.get("img")
+
+        if myimg:
+            myimg.save(os.path.join("static/images", myimg.filename))
+            path = os.path.join("static/images", myimg.filename)
+
+        data = ContactUs(Title = mytitle, Message = message, myimage = path)
         db.session.add(data)
         db.session.commit()
+
+        flash("Data Sucessfully saved in database..")
+        flash("Check data saved in database")
+        flash("Done")
 
         return redirect("/contact")
 
