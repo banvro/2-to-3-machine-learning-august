@@ -14,11 +14,3 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Hello.settings')
 
 application = get_wsgi_application()
-
-
-
-# 1) https / http ----> wsgi.py 
-#     web server getway interface
-
-# 2) socket, web sockets  (ws, wss//) --> asgi.py 
-#         asynchronous getway interface
