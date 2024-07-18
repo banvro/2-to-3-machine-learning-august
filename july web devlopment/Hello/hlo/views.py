@@ -7,7 +7,9 @@ def homepage(request):
     return render(request, "home.html")
 
 def aboutpage(request):
-    return render(request, "about.html")
+    all_records = ContactUs.objects.all()
+    # print(all_records)
+    return render(request, "about.html", {"my_data" : all_records})
 
 def contactpage(request):
     return render(request, "contactus.html")
