@@ -34,3 +34,11 @@ def savedata(request):
         return redirect('contact')
 
     return HttpResponse("data saved sucessfully...!")
+
+
+def deletedata(request, x):
+    # print(x)
+    rec = ContactUs.objects.get(id = x)
+    rec.delete()
+    return redirect("about")
+    # return HttpResponse("data deleted sucessfully...!")

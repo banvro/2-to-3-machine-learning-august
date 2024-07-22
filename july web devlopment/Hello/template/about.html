@@ -15,6 +15,7 @@
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
             <th scope="col">Message</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,11 @@
             <td>{{data.email}}</td>
             <td>{{data.phone_number}}</td>
             <td>{{data.message}}</td>
+            <td>
+              <div>
+                <a href="/delete-record/{{data.id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+              </div>
+            </td>
           </tr>
           {% endfor %}
 
