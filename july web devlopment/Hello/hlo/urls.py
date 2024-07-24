@@ -8,4 +8,6 @@ urlpatterns = [
     path("services", views.servicespage, name = "services"),
     path("savedata", views.savedata),
     path("delete-record/<int:x>", views.deletedata),
+    path("update-here/<int:abc>", views.updatedata),
+    path("update-data/<int:abc>", views.updaterecord),
 ]

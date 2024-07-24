@@ -31,7 +31,7 @@ def savedata(request):
                          phone_number = phn_num,
                          message = msg)
         data.save()
-        return redirect('contact')
+        return redirect('about')
 
     return HttpResponse("data saved sucessfully...!")
 
@@ -42,3 +42,26 @@ def deletedata(request, x):
     rec.delete()
     return redirect("about")
     # return HttpResponse("data deleted sucessfully...!")
+
+
+def updatedata(request, abc):
+    obj = ContactUs.objects.get(id = abc)
+    return render(request, "updatedata.html", {"record" : obj})
+
+
+def updaterecord(request, abc):
+    obj = ContactUs.objects.get(id = abc)
+    if request.method == "POST":
+        full_name = request.POST.get('fname')
+        email = request.POST.get("email")
+        phn_num = request.POST.get("pnumber")
+        msg = request.POST.get("msg")
+
+        # objectname.column_name = new_data
+        obj.fullname = full_name
+        obj.email = email
+        obj.phone_number = phn_num
+        obj.message = msg
+        obj.save()
+
+    return redirect("about")

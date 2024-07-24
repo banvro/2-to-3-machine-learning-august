@@ -22,14 +22,17 @@
 
         {% for data in my_data %}
           <tr>
-            <th scope="row">{{data.id}}</th>
+            <th scope="row">{{forloop.counter}}</th>
             <td>{{data.fullname}}</td>
             <td>{{data.email}}</td>
             <td>{{data.phone_number}}</td>
             <td>{{data.message}}</td>
-            <td>
+            <td style="display: flex; justify-content: space-evenly;">
               <div>
                 <a href="/delete-record/{{data.id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+              </div>
+              <div>
+                <a href="update-here/{{data.id}}"><button type="button" class="btn btn-success">Update</button></a>
               </div>
             </td>
           </tr>
