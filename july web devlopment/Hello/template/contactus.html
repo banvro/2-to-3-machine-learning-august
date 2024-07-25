@@ -3,7 +3,7 @@
 
 {% block xyz %}
 
-<form action="/savedata" method="post">
+<form action="/savedata" method="post" enctype="multipart/form-data">
   {% csrf_token %}
     <div style="padding-left: 15%; padding-right: 15%; margin-top: 62px;">
         <h1 style="text-align: center; color: green; margin-bottom: 12px;">Contact Us</h1>
@@ -22,6 +22,11 @@
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
             <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your Message hear.."></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="Enter your phone number" name="myimg">
           </div>
     
           <div style="text-align: center;">

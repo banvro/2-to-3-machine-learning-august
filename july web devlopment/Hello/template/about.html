@@ -11,6 +11,7 @@
         <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">Image</th>
             <th scope="col">Full Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
@@ -23,6 +24,9 @@
         {% for data in my_data %}
           <tr>
             <th scope="row">{{forloop.counter}}</th>
+            <td>
+              <img src="/media/{{data.saveimg}}" alt="" style="max-width: 41px;">
+            </td>
             <td>{{data.fullname}}</td>
             <td>{{data.email}}</td>
             <td>{{data.phone_number}}</td>

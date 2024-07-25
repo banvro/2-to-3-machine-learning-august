@@ -24,12 +24,15 @@ def savedata(request):
         email = request.POST.get("email")
         phn_num = request.POST.get("pnumber")
         msg = request.POST.get("msg")
+        img = request.FILES.get("myimg")
 
-        # print(full_name, email, phn_num, msg)
+        # print(img, "xxxxxxxxxxxxxxxxxxx")
+        print(full_name, email, phn_num, msg)
         data = ContactUs(fullname = full_name, 
                          email = email, 
                          phone_number = phn_num,
-                         message = msg)
+                         message = msg,
+                         saveimg = img)
         data.save()
         return redirect('about')
 
