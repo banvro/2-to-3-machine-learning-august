@@ -10,4 +10,5 @@ urlpatterns = [
     path("delete-record/<int:x>", views.deletedata),
     path("update-here/<int:abc>", views.updatedata),
     path("update-data/<int:abc>", views.updaterecord),
+    path("search-record", views.searching),
 ]

@@ -68,3 +68,15 @@ def updaterecord(request, abc):
         obj.save()
 
     return redirect("about")
+
+
+def searching(request):
+    query = request.GET.get("q")
+
+    if query:
+        xyz = ContactUs.objects.filter(email__icontains = query) | ContactUs.objects.filter(fullname__icontains = query) |ContactUs.objects.filter(phone_number__icontains = query)
+
+        return render(request, "about.html", {"my_data" : xyz})
+    else:
+        all_records = ContactUs.objects.all()
+        return render(request, "about.html", {"my_data" : all_records})
