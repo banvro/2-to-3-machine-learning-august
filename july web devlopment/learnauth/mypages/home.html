@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block abc %}
+
+
+    <h1>
+        {{request.user}}
+        {{request.user.email}}
+        {{request.user.first_name}}
+    </h1>
+
+
+{% endblock abc %}
