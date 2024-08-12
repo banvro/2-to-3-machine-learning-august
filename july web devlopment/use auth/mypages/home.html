@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block abc %}
+
+
+    <h1>
+        {% if request.user.is_authenticated %}
+            {{request.user}}<br>
+            {{request.user.email}}<br>
+            {{request.user.first_name}}
+        
+        {% else %}
+            please login first
+
+        {% endif %}
+    </h1>
+
+
+{% endblock abc %}
