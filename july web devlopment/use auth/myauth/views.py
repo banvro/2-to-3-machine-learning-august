@@ -1,12 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from myauth.models import UserCheck
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 # Create your views here.
 
-
+@login_required(login_url="/login")
 def home(request):
-    return render(request, "home.html")
+        user = User.objects.get(username = request.user)
+        check_techer = UserCheck.objects.filter(userx = user).last()
+        print(check_techer, "xxxxxxxxxxx")
+        if check_techer:
+            if check_techer.is_teacher:
+                return render(request, "home.html")
+            else:
+                return HttpResponse("your are not authorize....")
+        else:
+            return HttpResponse("your are not authorize....")
 
+
+@login_required(login_url="/login")
 def about(request):
     return render(request, "about.html")
 
@@ -34,6 +48,9 @@ def signuppage(request):
 
         newuser = User.objects.create_user(username = username, first_name = first_name, last_name = last_name, email = email, password = passsword)
         newuser.save()
+
+        checkdata = UserCheck(userx = newuser, is_teacher = True)
+        checkdata.save()
 
     return render(request, "auth/signuppage.html")
 
