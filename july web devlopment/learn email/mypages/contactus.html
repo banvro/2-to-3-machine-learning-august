@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block abc %}
+
+<div style="padding-top: 2%; padding-left: 10%; padding-right: 18%;">
+    <h1 style="text-align: center; margin-bottom: 15px; color: red;">contact Page</h1>
+    <form action="/contact-us" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="fname" placeholder="Enter your full name">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Phoen Number</label>
+          <input type="tel" class="form-control" name="number" placeholder="Enter Your phone number">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name = "email" placeholder="Enter Your email">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Message</label>
+          <textarea type="text" name="msg" class="form-control" placeholder="Enter Your Mesage" rows="4"></textarea>
+        </div>
+
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+      </form>
+</div>
+  
+
+
+{% endblock abc %}
