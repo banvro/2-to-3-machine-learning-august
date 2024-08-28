@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form action="/updaing-data-now/{{data.id}}" method="post">
+    <div style="margin-left: 13%; margin-right: 17%; margin-top: 2%;">
+        <h1 style="text-align: center; color: green; margin-bottom: 13px;">Update Data</h1>
+        <div class="mb-3">
+            <label for="exampleF ormControlInput1" class="form-label">Full Name</label>
+            <input type="text" value="{{data.full_name}}" name="fname" class="form-control"placeholder="Enter your Name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="text" name="email" value="{{data.email}}" class="form-control"placeholder="Enter your email Address">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+            <input type="text" name="pnumber" value="{{data.phone_number}}" class="form-control"placeholder="Enter your phone numebr">
+        </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" name="msg" id="exampleFormControlTextarea1" rows="3" placeholder= "Enter your message here">{{data.message}}</textarea>
+          </div>
+    
+        <div style="text-align: center;">
+            <button type="submit" class="btn btn-success">Update</button>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+{% endblock body %}
